@@ -1,0 +1,59 @@
+{% extends 'base.html' %}}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-aboutpage{% endblock %}
+
+{% block content %}
+
+<style>
+
+
+  body {
+      position: relative;
+  }
+
+affix {
+      top: 20px;
+  }
+
+
+  </style>
+
+
+<div class="container">
+    <nav class="col-sm-3">
+        <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="40">
+
+      {% for block in page.body %}
+          {% if block.block_type == 'section_heading' %}
+          <li {% if forloop.counter == 1 %}class="active"{% endif %}><a href="#section{{forloop.counter}}">
+            {{ block.value }}{% endif %} </a></li>
+      {% endfor %}
+
+          </ul>
+    </nav>
+
+    <body data-spy="scroll" data-target=".nav" data-offset="10">
+
+
+
+<div class="col-sm-8">
+
+    {{page.title}}
+
+    {% for block in page.body %}
+      <div id="section{{forloop.counter}}">
+          {% if block.block_type == 'section_heading' %}<h1>{{ block.value}}</h1>{% endif %}
+          {% if block.block_type == 'text' %}<p>{{ block.value}}</p>{% endif %}
+      </div>
+    {% endfor %}
+
+</div>
+
+  </div>
+</div>
+</body>
+
+
+{% endblock %}
