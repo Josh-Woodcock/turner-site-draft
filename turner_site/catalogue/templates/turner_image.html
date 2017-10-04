@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-ourresearchindexpage{% endblock %}
+
+{% block content %}
+
+
+<!--START some kind of container-->
+
+{{ page.image_title }}
+{{ page.rawlinson_finberg_number }}
+{{ page.original_engraving_date }}
+
+{{ page.full_image }}
+{{ page.copyright_conditions_of_use }}
+
+<!--END some kind of container-->
+
+{{ page.unique_identifying_number }}
+{{ page.date_of_submission }}
+
+
+<!--TABLE 1-->
+<h2> Submitting Information </h2>
+<table class="table">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Person submitting images: </th>
+      <td>{{ page.person_submitting_images }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Current owning institution: </th>
+      <td>{{ page.current_owning_inst_person }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Institutional / Personal Unique Impression No.: </th>
+      <td>{{ page.inst_personal_unique_impression_accession_no }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Institutional / Personal Unique Image No.: </th>
+      <td>{{ page.inst_personal_unique_image_accession_no }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--TABLE 2-->
+<h2> Dimensions </h2>
+<table class="table">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"> Impression physical dimensions: </th>
+      <td>{{ page.impression_physical_dimensions }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Size of paper: </th>
+      <td>{{ page.size_of_paper }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Size of plate impression: </th>
+      <td>{{ page.size_of_plate_impression }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Size of Picture: </th>
+      <td>{{ page.size_of_picture }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--TABLE 3-->
+<h2> Physical Attributes </h2>
+<table class="table">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"> Paper Type: </th>
+      <td>{{ page.paper_type }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Condition: </th>
+      <td>{{ page.condition }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Physical history:</th>
+      <td>{{ page.physical_history }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Comments on Impression: </th>
+      <td>{{ page.comments_on_impression }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!--TABLE 4-->
+<h2> Digital Image </h2>
+<table class="table">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"> Digital image dimensions: </th>
+      <td>{{ page.digital_image_dimensions }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Digital Image Capture Mechanism: </th>
+      <td>{{ page.digital_image_capture_mechanism }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Imaging Device: </th>
+      <td>{{ page.imaging_device }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Device Settings: </th>
+      <td>{{ page.device_settings }}</td>
+    </tr>
+   <tr>
+      <th scope="row"> Calibration: </th>
+      <td>{{ page.calibration }}</td>
+    </tr>
+   <tr>
+      <th scope="row"> Date of Capture: </th>
+      <td>{{ page.date_of_capture }}</td>
+    </tr>
+
+<!--TABLE 5-->
+<h2> Engraving Info </h2>
+<table class="table">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"> Rawlinson Finberg Number: </th>
+      <td>{{ page.rawlinson_finberg_number }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Proposed Version State: </th>
+      <td>{{ page.proposed_version_state }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Engraver: </th>
+      <td>{{ page.engraver }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Original Engraving Date: </th>
+      <td>{{ page.original_engraving_date }}</td>
+    </tr>
+   <tr>
+      <th scope="row"> Original Publication: </th>
+      <td>{{ page.original_publication }}</td>
+    </tr>
+   <tr>
+      <th scope="row"> Actual Publication: </th>
+      <td>{{ page.actual_publication }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--TABLE 6-->
+<h2> Text and Information on Impression </h2>
+<table class="table">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"> Printed Text on Impression: </th>
+      <td>{{ page.printed_text_on_impression }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Written info on Impression: </th>
+      <td>{{ page.written_info_on_impression }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Turner touching comments: </th>
+      <td>{{ page.turner_touching_comments }}</td>
+    </tr>
+    <tr>
+      <th scope="row"> Previous collection owner: </th>
+      <td>{{ page.previous_collection_owner }}</td>
+    </tr>
+   <tr>
+      <th scope="row"> Links to related Information: </th>
+      <td>{{ page.links_related_info }}</td>
+    </tr>
+   <tr>
+      <th scope="row"> Histories of original drawing: </th>
+      <td>{{ page.histories_or_original_drawing }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+{{ page. }}
+{{ page. }}
+{{ page. }}
+{{ page. }}
+{{ page. }}
+{{ page. }}
+{{ page. }}
+{{ page. }}
+{{ page. }}
+{{ page. }}
+{{ page. }}

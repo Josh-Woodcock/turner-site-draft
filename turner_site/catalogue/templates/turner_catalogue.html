@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-ourresearchindexpage{% endblock %}
+
+{% block content %}
+
+
+<head><style>
+
+    /*CSS GOES HERE*/
+
+</style></head>
+
+
+<div class="container">
+     <div class="row">
+
+         <div class="col-sm-12">
+      <div class="jumbotron text-center">
+            <h2> {{page.title}} </h2>
+          <div class="spacersml"></div>
+            <p> {{page.intro_catalogue}} </p>
+      </div>
+    </div>
+
+
+<div class="container-fluid">
+<div class="row">
+
+    {% for post in page.get_children %}
+        {% with post=post.specific %}
+
+        <div class="card" style="width: 20rem;">
+      <img class="card-img-top" src="{{ post.thumbnail }}" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{ post.img_title }}</h4>
+        <p class="card-text"> {{ post.rawlinson_finberg_number}} , {{ original_engraving_date }} </p>
+      </div>
+    </div>
+
+        {% endwith %}
+    {% endfor %}
+
+
+            </div>
+        </div>
+
+     </div>
+</div>
+
+
+{% endblock %}
