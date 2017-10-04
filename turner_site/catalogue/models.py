@@ -1,26 +1,16 @@
-from django import forms
 from datetime import date
 
-from django.db import models
-
-from modelcluster.tags import ClusterTaggableManager
-
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import StreamField, RichTextField
+from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore import blocks
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
+from wagtail.wagtailadmin.edit_handlers import StreamFieldPanel
 from wagtail.wagtailimages.blocks import ImageChooserBlock
-from wagtail.wagtailsearch import index
-
-from wagtail.contrib.table_block.blocks import TableBlock
-from wagtail.wagtailimages.models import Image
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 
 class TurnerImageBlock(blocks.StructBlock):
-    image_title = blocks.CharBlock()
-    thumbnail = ImageChooserBlock
-    full_image = ImageChooserBlock
+    image_title = blocks.CharBlock(required=True)
+    thumbnail = ImageChooserBlock()
+    full_image = ImageChooserBlock()
     copyright_conditions_of_use = blocks.CharBlock()
 
     unique_identifying_number = blocks.CharBlock()
@@ -73,7 +63,7 @@ class TurnerImageBlock(blocks.StructBlock):
 class CatalogueIndexPage(Page):
 
     body = StreamField([
-        'image', TurnerImageBlock(),
+        ('image', TurnerImageBlock()),
     ])
 
     content_panels = Page.content_panels + [
