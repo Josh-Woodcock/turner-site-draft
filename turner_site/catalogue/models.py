@@ -1,19 +1,12 @@
-from django import forms
 from datetime import date
 
 from django.db import models
 
-from modelcluster.tags import ClusterTaggableManager
-
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import StreamField, RichTextField
-from wagtail.wagtailcore import blocks
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel, FieldRowPanel
-from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.wagtailcore.fields import RichTextField
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.wagtailsearch import index
 
-from wagtail.contrib.table_block.blocks import TableBlock
-from wagtail.wagtailimages.models import Image
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 
@@ -36,18 +29,17 @@ class TurnerImage(Page):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    full_image =models.ForeignKey(
+    full_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    copyright_conditions_of_use = models.CharField(max_length=255) # dropdown?
+    copyright_conditions_of_use = models.CharField(max_length=255)
 
     unique_identifying_number = models.CharField(max_length=255)
-    date_of_submission = models.DateField(('Date'), default=date.today)
-
+    date_of_submission = models.DateField('Date', default=date.today)
 
     # person submitting
     person_submitting_images = models.CharField(max_length=255)
@@ -66,7 +58,6 @@ class TurnerImage(Page):
     condition = models.CharField(max_length=255)  # dropdown?
     physical_history = models.CharField(max_length=255)
     comments_on_impression = RichTextField()
-
 
     # Digital Image
     digital_image_dimensions = models.CharField(max_length=255)
@@ -103,7 +94,7 @@ class TurnerImage(Page):
             FieldPanel('copyright_conditions_of_use'),
             FieldPanel('unique_identifying_number'),
             FieldPanel('date_of_submission'),
-    ], heading="Image"),
+        ], heading="Image"),
         MultiFieldPanel([
             FieldPanel('person_submitting_images'),
             FieldPanel('current_owning_inst_person'),
