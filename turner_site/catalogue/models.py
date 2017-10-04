@@ -17,7 +17,16 @@ from wagtail.wagtailimages.models import Image
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 
-class TurnerImagePage(Page):
+class TurnerCatalogue(Page):
+    intro_catalogue = models.CharField(max_length=500, blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('intro_catalogue'),
+
+    ]
+
+
+class TurnerImage(Page):
     # Image
     image_title = models.CharField(max_length=255)
     thumbnail = models.ForeignKey(
@@ -39,6 +48,7 @@ class TurnerImagePage(Page):
     unique_identifying_number = models.CharField(max_length=255)
     date_of_submission = models.DateField(('Date'), default=date.today)
 
+
     # person submitting
     person_submitting_images = models.CharField(max_length=255)
     current_owning_inst_person = models.CharField(max_length=255)
@@ -53,9 +63,10 @@ class TurnerImagePage(Page):
 
     # Physical Attributes
     paper_type = models.CharField(max_length=255)
-    comments_on_impression = RichTextField()
     condition = models.CharField(max_length=255)  # dropdown?
     physical_history = models.CharField(max_length=255)
+    comments_on_impression = RichTextField()
+
 
     # Digital Image
     digital_image_dimensions = models.CharField(max_length=255)
@@ -66,7 +77,7 @@ class TurnerImagePage(Page):
     date_of_capture = models.CharField(max_length=255)
 
     # Engraving info
-    rawlinson_finerg_number = models.CharField(max_length=255)
+    rawlinson_finberg_number = models.CharField(max_length=255)
     proposed_version_state = models.CharField(max_length=255)
     engraver = models.CharField(max_length=255)
     original_engraving_date = models.CharField(max_length=255)
@@ -120,7 +131,7 @@ class TurnerImagePage(Page):
             FieldPanel('date_of_capture'),
         ], heading="Digital Image"),
         MultiFieldPanel([
-            FieldPanel('rawlinson_finerg_number'),
+            FieldPanel('rawlinson_finberg_number'),
             FieldPanel('proposed_version_state'),
             FieldPanel('engraver'),
             FieldPanel('original_engraving_date'),
@@ -159,7 +170,7 @@ class TurnerImagePage(Page):
         index.SearchField('device_settings'),
         index.SearchField('calibration'),
         index.SearchField('date_of_capture'),
-        index.SearchField('rawlinson_finerg_number'),
+        index.SearchField('rawlinson_finberg_number'),
         index.SearchField('proposed_version_state'),
         index.SearchField('engraver'),
         index.SearchField('original_engraving_date'),
